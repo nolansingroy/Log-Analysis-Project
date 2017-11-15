@@ -36,11 +36,18 @@ def pop_authors_print():
 def error_day_print():
 	print"The day that 404 requests were greater then 1%"
 	query3 = """
-		select day, percent from error_day;
+		select day, percent from error_day_results;
 		"""
-	errorDay= main(query3)
+	errorDay = main(query3)
 	for(day,percent) in errorDay:
 		print("{} -- {}%".format(day,percent))
+	for i in errorDay:
+		date = i[0].strftime('%B %d, %Y')
+		errors = str(round(i[1]*100,1)) + "%" + "errors"
+		print(date + "---"+ errors)
+
+
+
 
 if __name__ =="__main__":
 	pop_3_articles_print() 
