@@ -5,5 +5,5 @@ __pycache__
 forum/*
 tournament/*
 catalog/*
-*Vagrantfile
-*readme.md
+Vagrantfile
+

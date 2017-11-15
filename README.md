@@ -29,22 +29,23 @@ create view percent_error as select total_requests.date_trunc, (100*error_reques
 create view error_day as select percent_error.date_trunc as day, percent_error.percentage as percent from percent_error where percent_error.percentage > 1;
 ```
 ##Results
---------------------------------------------------------
-vagrant@vagrant:/vagrant$ python log_analysis.py
+
+Solution#1:
  popular 3 articles
---
+
  Candidate is jerk, alleges rival - 342102 views
  Bears love berries, alleges bear - 256365 views
  Bad things gone, say good people - 171762 views
 
-
+Solution2:
 Most Popular Authors
+
  Ursula La Multa - 507594 views
  Rudolf von Treppenwitz - 423457 views
  Anonymous Contributor - 170098 views
  Markoff Chaney - 84557 views
 
-
+Solution3:
 The day that 404 requests were greater then 1%
+
 2016-07-17 00:00:00+00:00 -- 2%
------------------------------------
