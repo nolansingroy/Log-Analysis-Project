@@ -2,3 +2,8 @@ __pycache__
 *.pyc
 *vagrant
 *newsdata.sql
+forum/*
+tournament/*
+catalog/*
+*Vagrantfile
+*readme.md
