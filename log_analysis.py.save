@@ -1,0 +1,38 @@
+#!/usr/bin/env python2
+
+import psycopg2
+
+DBNAME = "news"
+def main(query):
+	# connect to database
+	connection = psycopg2.connect(database=DBNAME)
+	c = connection.cursor()
+	c.execute(query)
+	results = c.fetchall()
+	connection.close()
+	return results
+
+def pop_3_articles_print():
+	print " popular 3 articles"
+	print '--'
+	query1 = """
+		select popular_3_articles.title , popular_3_articles.views as views from 
+		popular_3_articles order by popular_3_articles.views desc limit 3;
+		"""
+	popular_articles = main(query1)
+	for (title, views) in popular_articles:
+		print(" {} - {} views".format(title,views))
+	print "\n"
+def pop_authors_print():
+	print "Most Popular Authors"
+	query2 = """
+		select pop_authors_named.name,pop_authors_named.requested_views as views from 
+		pop_authors_named order by views desc;
+	
+	"""
+	for(name, views) in pop_authors_named:
+		print(" {} - {} views".format(name, views))
+
+if __name__ =="__main__":
+	pop_3_articles_print() 
+	pop_authors_print()
