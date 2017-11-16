@@ -39,11 +39,9 @@ def error_day_print():
 		select day, percent from error_day_results;
 		"""
 	errorDay = main(query3)
-	for(day,percent) in errorDay:
-		print("{} -- {}%".format(day,percent))
 	for i in errorDay:
 		date = i[0].strftime('%B %d, %Y')
-		errors = str(round(i[1]*100,1)) + "%" + "errors"
+		errors = str(round(i[1]*100,1)) + "%" + " errors"
 		print(date + "---"+ errors)
 
 
